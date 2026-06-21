@@ -198,6 +198,10 @@ CodeMemory has been evaluated and meets production standards with a score of **1
 * **Affected Files**: `codememory/watcher/incremental_scanner.py`, `codememory/intelligence/report_generator.py`
 
 ### 4. Production Environment Configuration
+
+---
+
+* **Maintained by**: Babul Kumar
 * **Date**: 2026-06-19
 * **Details**: Configuration settings (e.g., `CODEMEMORY_MAX_WORKERS`) can be overridden directly using environment variables prefixed with `CODEMEMORY_`, easing containerized deployments.
 * **Affected Files**: `codememory/config.py`
