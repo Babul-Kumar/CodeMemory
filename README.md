@@ -1,167 +1,90 @@
 # CodeMemory
 
-Persistent Repository Intelligence for AI Coding Agents.
+A persistent repository intelligence platform for AI coding agents.
 
-Stop making AI re-read your codebase. Give it memory instead.
+CodeMemory stores and serves repository knowledge so AI agents can work from memory instead of re-reading the same source files on every session.
 
----
+## Overview
 
-## 🚀 Why CodeMemory?
+CodeMemory transforms a codebase into a durable intelligence layer that includes a knowledge graph, semantic embeddings, architecture analysis, and agent-ready context artifacts. This reduces token waste, accelerates reasoning, and improves agent reliability when working with large repositories.
 
-CodeMemory is a repository intelligence platform that allows AI coding agents to understand large codebases without repeatedly scanning thousands of files.
+## Why CodeMemory?
 
-It transforms source code into a persistent knowledge graph, semantic index, architecture map, engineering memory, and MCP interface that any AI agent can query.
+Modern AI coding tools often re-scan repository contents for every interaction. That process is expensive and inefficient because it repeats the same file reading, dependency discovery, and architecture reconstruction.
 
-### Why not just use RAG?
+CodeMemory solves that problem by maintaining:
 
-Traditional AI coding tools repeatedly scan repositories. Every session they:
+* persistent repository structure
+* dependency and symbol relationships
+* architecture insights and design patterns
+* semantic search embeddings
+* context packs for focused tasks
+* incremental updates for changed files
 
-* read files
-* build context
-* reconstruct architecture
-* relearn dependencies
+This enables AI agents to query repository intelligence directly instead of rebuilding understanding from scratch.
 
-This wastes tokens and time.
+## Key Differentiators
 
-CodeMemory creates a persistent intelligence layer that stores:
+* Persistent repository intelligence layer
+* Local semantic embeddings with FastEmbed
+* Knowledge graph of code and dependencies
+* Automatic architecture and pattern analysis
+* Incremental file scanning and re-indexing
+* Native MCP integration for AI agents
 
-* repository structure
-* dependency relationships
-* architecture insights
-* engineering decisions
-* context packs
-* semantic embeddings
+## Core Capabilities
 
-AI agents query intelligence instead of repeatedly reading code.
+* Persistent repo intelligence with a semantic knowledge layer
+* Local FastEmbed embeddings for efficient semantic search
+* Graph-based dependency and symbol relationship modeling
+* Automated architecture and pattern analysis
+* Incremental scanning for rapid updates
+* MCP-native server for AI agent integration
 
----
+## Architecture
 
-## 🎯 The Problem
+CodeMemory is organized into distinct functional layers:
 
-Modern AI coding agents repeatedly spend tokens understanding the same repository. Every new session requires:
+* `codememory/scanner/` — repository traversal, language detection, AST parsing, and symbol extraction
+* `codememory/graph/` — graph construction, relationship detection, and serialization
+* `codememory/embeddings/` — embedding generation, indexing, and similarity search
+* `codememory/retrieval/` — query parsing, hybrid search, and ranking
+* `codememory/intelligence/` — architecture analysis, pattern detection, and intelligence report generation
+* `codememory/server/` — MCP service and API exposure
+* `codememory/watcher/` — file change detection and incremental updates
 
-* reading files
-* reconstructing architecture
-* discovering dependencies
-* rebuilding context
+For a complete module catalog, see `docs/module_map.md`.
 
-This wastes time, compute, and context window.
+## Quick Start
 
-CodeMemory solves this by creating a persistent intelligence layer that AI agents can query instead of repeatedly scanning the codebase.
-
----
-
-## 📈 Performance Highlights
-
-* **94.8%** Context Compression
-* **100%** Deployment Readiness
-* **100%** v1 Completion
-* **109** Passing Tests
-* **21+** MCP Tools
-* **<16ms** Average MCP Response
-* **<5s** Incremental Updates
-
----
-
-## 🧠 Visual Architecture
-
-```
-Repository    │
-            ▼ CodeMemory ──┬── Knowledge Graph
-                              ├── Semantic Search
-                              ├── Architecture Analysis
-                              ├── Context Packs
-                              ├── Agent Memory
-                              └── Intelligence Layer
-                                │
-                                ▼ MCP Server
-                                │
-                                ▼ Cursor • Claude • Cline • Roo • Codex
-```
-
----
-
-## ⭐ What Makes It Different?
-
-| Feature | CodeMemory | Typical RAG |
-|---|:---:|:---:|
-| Semantic Search | ✅ | ✅ |
-| Knowledge Graph | ✅ | ❌ |
-| Architecture Analysis | ✅ | ❌ |
-| Change Impact Analysis | ✅ | ❌ |
-| Context Packs | ✅ | ❌ |
-| Agent Memory | ✅ | ❌ |
-| Incremental Updates | ✅ | ❌ |
-| MCP Native | ✅ | ❌ |
-
----
-
-## 🛠️ MCP Tools
-
-| Category | Tools |
-|---|---|
-| Project Intelligence | `get_project_summary`, `get_ai_context` |
-| Architecture | `get_architecture_overview` |
-| Search | `search_codebase` |
-| Analysis | `get_change_impact` |
-| Memory | `get_project_history` |
-| Planning | `get_next_tasks` |
-| Health | `get_repository_health` |
-
----
-
-## 🚀 Quick Start
-
-1. Install:
+1. Install dependencies:
    ```bash
    pip install -e ".[dev]"
    ```
-2. Initialize:
+2. Initialize the repository database:
    ```bash
    codememory init
    ```
-3. Scan the repo:
+3. Scan the repository:
    ```bash
    codememory scan
    ```
-4. Serve MCP:
+4. Start the MCP server:
    ```bash
    codememory serve /absolute/path/to/your/repo --stdio
    ```
 
----
+## Example Workflows
 
-## � Getting Started with AI Agents
+### Repository Understanding
 
-Without CodeMemory:
-
-```text
-AI Agent   ├─ Read 500 files
-           ├─ Build dependency map
-           ├─ Infer architecture
-           ├─ Find relevant code
-           └─ Repeat every session
-```
-
-With CodeMemory:
-
-```text
-AI Agent   ├─ Query CodeMemory
-           ├─ Get architecture overview
-           ├─ Get context pack
-           ├─ Get dependency impact
-           └─ Start coding immediately
-```
-
-### Example: Understanding a Repository
-
-Ask your AI agent:
+Request an architecture overview from your AI agent:
 
 ```text
 Explain this repository architecture.
 ```
 
-The agent can call:
+The agent can use:
 
 ```text
 get_architecture_overview()
@@ -169,25 +92,21 @@ get_architecture_overview()
 
 and receive:
 
-* System layers
-* Major components
-* Dependencies
-* Entry points
-* Architectural patterns
+* system layers
+* major components
+* dependency structure
+* entry points
+* architectural patterns
 
-without scanning the entire codebase.
+### Feature Development
 
----
-
-### Example: Implementing a Feature
-
-Ask:
+Request a context pack for a feature:
 
 ```text
 Implement OAuth authentication.
 ```
 
-The agent can call:
+The agent can use:
 
 ```text
 get_context_pack("oauth authentication")
@@ -195,106 +114,88 @@ get_context_pack("oauth authentication")
 
 and receive:
 
-* Relevant files
-* Dependencies
-* Existing auth logic
-* Architecture notes
-* Related components
+* relevant source files
+* dependency context
+* existing implementation details
+* architecture notes
+* related components
 
-instead of searching hundreds of files.
+### Safe Refactoring
 
----
-
-### Example: Safe Refactoring
-
-Ask:
+Request change impact analysis before editing:
 
 ```text
 Refactor UserService.
 ```
 
-The agent can call:
+The agent can use:
 
 ```text
 get_change_impact("user_service.py")
 ```
 
-to identify:
+and receive:
 
-* Affected modules
-* Dependent services
-* Related APIs
-* Impacted tests
+* affected modules
+* dependent services
+* related APIs
+* impacted tests
 
-before making changes.
+### Project Health
 
----
-
-### Example: Project Health
-
-Ask:
+Request project guidance:
 
 ```text
 What should I work on next?
 ```
 
-The agent can call:
+The agent can use:
 
 ```text
 get_next_tasks()
 get_repository_health()
-get_leftover_work()
 ```
 
-to identify:
+and receive:
 
-* Missing features
-* Technical debt
-* Deployment blockers
-* Testing gaps
+* outstanding work items
+* technical debt areas
+* deployment blockers
+* testing coverage gaps
 
-instantly.
+## MCP Tools
 
----
+CodeMemory exposes MCP tools for repository awareness and task automation, including:
 
-### Supported AI Agents
+* `get_project_summary`
+* `get_ai_context`
+* `get_architecture_overview`
+* `search_codebase`
+* `get_change_impact`
+* `get_project_history`
+* `get_next_tasks`
+* `get_repository_health`
 
-CodeMemory works with any MCP-compatible AI agent, including:
+## Supported AI Agents
 
-* Cursor ✅
-* Claude Desktop ✅
-* Cline ✅
-* Roo Code ✅
-* Codex CLI ✅
-* Antigravity ✅
-* Any MCP Client ✅
+CodeMemory is compatible with any MCP-compliant agent, including:
 
----
+* Cursor
+* Claude Desktop
+* Cline
+* Roo Code
+* Codex CLI
+* Antigravity
 
-## �🔧 Core Capabilities
-
-* Persistent repo intelligence with a semantic knowledge layer
-* Local FastEmbed embeddings for fast semantic search
-* Graph-based dependency and symbol relationships
-* Automated architecture and pattern analysis
-* Incremental scanning for fast updates
-* MCP-native server for AI agent integration
-
----
-
-## 📚 Documentation
+## Documentation
 
 * `docs/architecture.md` — architecture overview
 * `docs/module_map.md` — module map and AI context
 * `docs/adr.md` — architecture decision records
 * `docs/changelog.md` — changelog and release notes
 
----
-
-## 📄 License
+## License
 
 MIT
 
----
-
-*Maintained by Babul Kumar*
+Maintained by Babul Kumar

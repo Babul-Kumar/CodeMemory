@@ -1,26 +1,26 @@
 # Architecture Overview
 
-CodeMemory is built as a persistent repository intelligence platform for AI coding agents. Its architecture connects source code, semantic embeddings, dependency graphs, and agent interfaces in a single, queryable knowledge layer.
+CodeMemory is a repository intelligence platform designed to connect source code, semantic embeddings, dependency analysis, and agent-driven tools into a unified, queryable knowledge layer.
 
-## Core architecture
+## Core Components
 
-* **Repository Scanner** — crawls source files, detects languages, and extracts symbols using ASTs and fallback extractors.
-* **Knowledge Graph** — maps files, symbols, imports, calls, and relationships into a directed graph.
-* **Semantic Index** — computes vector embeddings for text, code, and symbols, then stores them for fast similarity search.
-* **Architecture Intelligence** — classifies layers, detects design patterns, and generates higher-level repo summaries.
-* **Agent Interface** — exposes the intelligence layer through MCP with search, analysis, memory, and health tools.
-* **Incremental watcher** — updates only changed files on disk so the intelligence layer stays fresh without rescanning the whole repo.
+* **Repository Scanner** — recursively traverses source files, detects language types, and extracts symbols through AST parsing and fallback extractors.
+* **Knowledge Graph** — represents files, symbols, imports, call relationships, and dependency paths in a directed graph structure.
+* **Semantic Index** — generates embeddings for code, documentation, and symbols, then stores them for efficient similarity search.
+* **Intelligence Engine** — analyzes architecture, detects design patterns, and creates repository summaries and context packages.
+* **Agent Interface** — exposes capabilities through a service layer, enabling search, analysis, memory, and health monitoring.
+* **Incremental Watcher** — tracks file changes and updates the intelligence layer on a per-file basis to avoid expensive full repository rescans.
 
-## System boundaries
+## System Boundaries
 
-* `codememory/scanner/` handles repository parsing and content extraction.
-* `codememory/graph/` handles relationship detection and graph serialization.
-* `codememory/embeddings/` handles embedding generation and nearest-neighbor search.
-* `codememory/retrieval/` handles hybrid search, query parsing, and ranking.
-* `codememory/intelligence/` produces architecture reports and context packs for agents.
-* `codememory/server/` exposes the MCP/REST endpoint.
-* `codememory/watcher/` handles file change detection and incremental updates.
+* `codememory/scanner/` handles repository traversal, language detection, parsing, and extractor orchestration.
+* `codememory/graph/` constructs and serializes the repository relationship graph.
+* `codememory/embeddings/` manages embedding generation, vector storage, and similarity search.
+* `codememory/retrieval/` handles query parsing, hybrid search, and ranking logic.
+* `codememory/intelligence/` generates architectural reports, summaries, and intelligence artifacts for agents.
+* `codememory/server/` exposes the public service API and agent integration endpoints.
+* `codememory/watcher/` monitors filesystem events and performs incremental repository updates.
 
-## Read more
+## Additional Resources
 
-For the full module catalog and AI context mapping, see `docs/module_map.md`.
+For a complete module catalog and AI context map, refer to `docs/module_map.md`.
