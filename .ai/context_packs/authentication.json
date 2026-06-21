@@ -1,0 +1,20 @@
+{
+  "goal": "Verify user authentication, keys, and tokens configuration.",
+  "important_files": [
+    "codememory/config.py"
+  ],
+  "dependencies": [
+    "codememory/cli.py",
+    "codememory/constants.py",
+    "codememory/scanner/__init__.py",
+    "codememory/scanner/file_walker.py",
+    "codememory/server/app.py",
+    "codememory/storage/database.py",
+    "codememory/watcher/incremental_scanner.py"
+  ],
+  "architecture_notes": "CodeMemory does not implement user login; configuration holds repo directory details.",
+  "related_components": [
+    "CodeMemoryConfig"
+  ],
+  "known_constraints": "Configuration lives in config.toml in local directories."
+}

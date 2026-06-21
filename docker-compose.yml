@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  codememory:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount the repository to be scanned into /repo inside the container
+      - .:/repo
+      # Persist the global data directory (where the SQLite DB and configurations are stored)
+      - codememory-data:/root/.codememory
+    environment:
+      - CODEMEMORY_MAX_FILE_SIZE_BYTES=500000
+      - CODEMEMORY_MAX_WORKERS=4
+      - CODEMEMORY_EMBEDDING_MODEL=BAAI/bge-small-en-v1.5
+    restart: unless-stopped
+
+volumes:
+  codememory-data:
