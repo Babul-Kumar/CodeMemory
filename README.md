@@ -131,7 +131,147 @@ Repository    │
 
 ---
 
-## 🔧 Core Capabilities
+## � Getting Started with AI Agents
+
+Without CodeMemory:
+
+```text
+AI Agent   ├─ Read 500 files
+           ├─ Build dependency map
+           ├─ Infer architecture
+           ├─ Find relevant code
+           └─ Repeat every session
+```
+
+With CodeMemory:
+
+```text
+AI Agent   ├─ Query CodeMemory
+           ├─ Get architecture overview
+           ├─ Get context pack
+           ├─ Get dependency impact
+           └─ Start coding immediately
+```
+
+### Example: Understanding a Repository
+
+Ask your AI agent:
+
+```text
+Explain this repository architecture.
+```
+
+The agent can call:
+
+```text
+get_architecture_overview()
+```
+
+and receive:
+
+* System layers
+* Major components
+* Dependencies
+* Entry points
+* Architectural patterns
+
+without scanning the entire codebase.
+
+---
+
+### Example: Implementing a Feature
+
+Ask:
+
+```text
+Implement OAuth authentication.
+```
+
+The agent can call:
+
+```text
+get_context_pack("oauth authentication")
+```
+
+and receive:
+
+* Relevant files
+* Dependencies
+* Existing auth logic
+* Architecture notes
+* Related components
+
+instead of searching hundreds of files.
+
+---
+
+### Example: Safe Refactoring
+
+Ask:
+
+```text
+Refactor UserService.
+```
+
+The agent can call:
+
+```text
+get_change_impact("user_service.py")
+```
+
+to identify:
+
+* Affected modules
+* Dependent services
+* Related APIs
+* Impacted tests
+
+before making changes.
+
+---
+
+### Example: Project Health
+
+Ask:
+
+```text
+What should I work on next?
+```
+
+The agent can call:
+
+```text
+get_next_tasks()
+get_repository_health()
+get_leftover_work()
+```
+
+to identify:
+
+* Missing features
+* Technical debt
+* Deployment blockers
+* Testing gaps
+
+instantly.
+
+---
+
+### Supported AI Agents
+
+CodeMemory works with any MCP-compatible AI agent, including:
+
+* Cursor ✅
+* Claude Desktop ✅
+* Cline ✅
+* Roo Code ✅
+* Codex CLI ✅
+* Antigravity ✅
+* Any MCP Client ✅
+
+---
+
+## �🔧 Core Capabilities
 
 * Persistent repo intelligence with a semantic knowledge layer
 * Local FastEmbed embeddings for fast semantic search
